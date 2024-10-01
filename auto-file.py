@@ -36,3 +36,12 @@ def make_unqiue(dest, name):
         name = f"{filename}({str(counter)}){extension}"
         counter +=1
     return name 
+
+def move_file(dest, entry,name):
+    if exists(f"{dest}/{name}"):
+        unique_name=make_unqiue(dest,name)
+        oldName=join(dest, name)
+        newName=join(dest, unique_name)
+        rename(oldName,newName)
+    move(entry, dest)
+

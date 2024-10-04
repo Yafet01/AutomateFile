@@ -9,12 +9,12 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 #folders to be used 
-source_dir='C:/Users/tedya/Downloads'
-dest_dir_music = "C:/Users/tedya/Downloads/Music"
-dest_dir_video = "C:/Users/tedya/Downloads/Video"
-dest_dir_image = "C:/Users/tedya/Downloads/Image"
-dest_dir_documents = "C:/Users/tedya/Downloads/Document"
-dest_dir_compressed= "D:/downloads/compressed"
+source_dir=''
+dest_dir_music = ""
+dest_dir_video = ""
+dest_dir_image = ""
+dest_dir_documents = ""
+dest_dir_compressed= ""
 
 
 # ? supported image types

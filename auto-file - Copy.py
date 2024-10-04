@@ -9,13 +9,12 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 #folders to be used 
-#Choose the folder dir path you want to.
-source_dir=''
-dest_dir_music = ""
-dest_dir_video = ""
-dest_dir_image = ""
-dest_dir_documents = ""
-dest_dir_compressed= ""
+source_dir='C:/Users/tedya/Downloads'
+dest_dir_music = "C:/Users/tedya/Downloads/Music"
+dest_dir_video = "C:/Users/tedya/Downloads/Video"
+dest_dir_image = "C:/Users/tedya/Downloads/Image"
+dest_dir_documents = "C:/Users/tedya/Downloads/Document"
+dest_dir_compressed= "D:/downloads/compressed"
 
 
 # ? supported image types
@@ -56,10 +55,10 @@ def move_file(dest, entry, name):
         newName=join(dest, unique_name)
         rename(oldName,newName)
     move(entry, dest)
-    
-    
 
 class MoverHandler(FileSystemEventHandler):
+    
+    
     def on_modified(self, event):
         with scandir(source_dir) as entries:
             for entry in entries:

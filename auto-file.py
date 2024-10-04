@@ -45,3 +45,40 @@ def move_file(dest, entry,name):
         rename(oldName,newName)
     move(entry, dest)
 
+class MoverHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        for entry in entries:
+            name= entry.name
+            self.check_audio_files(entry, name)
+            self.check_video_files(entry, name)
+            self.check_image_files(entry, name)
+            self.check_document_files(entry, name)
+            
+    def check_audio_files(self,entry, name):
+        for audio_extensions in audio_extensions:
+            if name.endswith(audio_extensions)or name.endswith(audio_extensions.upper()):
+                move_file(dest_dir_music,entry, name)
+                logging.info(f"Moved audio file:{name}")
+    
+    def check_document_file(self, event,name):
+        for document_extensions in document_extensions:
+            if name.endswith(document_extensions) or name.endswith(document_extensions.upper()):
+                move_file(dest_dir_documents, entry, name)
+                logging.info(f"Moved document file:{name}")
+                
+                
+    def check_video_file(self, event, name):
+        for video_extensions in video_extensions:
+            if name.endswith(video_extensions)or name.endswith(video_extensions.upper()):
+                move_file(dest_dir_video, entry, name)
+                logging.info(f"Moved video file:{name}")
+                
+    def check_image_file(self, event, name):
+        for image_extensions in image_extensions:
+            if name.endswith(image_extensions) or name.endswith(image_extensions.upper()):
+                move_file(dest_dir_image, entry, name)
+                logging.info(f"Moved image file:{name}")
+                
+                
+    
+    
